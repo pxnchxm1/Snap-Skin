@@ -31,7 +31,7 @@ const SignUp = () => {
                     <span className=" dark:text-white text-purple-700 ">or</span>
                 </div>
             </form>
-            <form className="  justify-center items-center flex flex-row gap-6  ">
+            <form className="  justify-center items-center flex flex-row gap-6  " >
                 <button type="submit"><Image src="/github.svg" alt="google" width={40} height={40} /></button>
                 <button type="submit"><Image src="/google.svg" alt="google" width={40} height={40} /></button>
             </form>

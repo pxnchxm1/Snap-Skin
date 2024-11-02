@@ -1,5 +1,6 @@
 "use client";
 
+import { login } from "@/app/action";
 import "@lottiefiles/lottie-player";
 import Image from 'next/image';
 import Link from "next/link";
@@ -32,9 +33,9 @@ const Login = () => {
               <span className=" dark:text-white text-purple-700 ">or</span>
               </div>
             </form>
-            <form className=" justify-center items-center flex flex-row gap-6 ">
-            <button type="submit"><Image src="/github.svg" alt="google" width={40} height={40} /></button>
-            <button type="submit"><Image src="/google.svg" alt="google" width={40} height={40} /></button>
+            <form className=" justify-center items-center flex flex-row gap-6 " action={login}>
+            <button type="submit" name="action" value="github"><Image src="/github.svg" alt="github" width={40} height={40} /></button>
+            <button type="submit" name="action" value="google"><Image src="/google.svg" alt="google" width={40} height={40}  /></button>
            
             </form>
            </div>

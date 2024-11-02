@@ -1,3 +1,4 @@
+import SessionProvider from "@/context/SessionProvider";
 import { ThemeProvider } from "@/context/ThemeProvider";
 import type { Metadata } from "next";
 import { Sen } from 'next/font/google';
@@ -24,11 +25,13 @@ export default function RootLayout({
       <body
         className={`${ss.className} scroll-smooth antialiased min-h-screen w-full box-border`}
       >
+        <SessionProvider>
         <ThemeProvider
           attribute="class"
           defaultTheme="light">
           {children}
         </ThemeProvider>
+        </SessionProvider>
        
       </body>
     </html>
