@@ -1,6 +1,5 @@
 "use client";
 
-import { logout } from "@/app/action";
 import { useRouter } from "next/navigation";
 import { createContext, useEffect, useState } from "react";
 
@@ -13,7 +12,7 @@ interface User {
 
 interface SessionData {
     user: User;
-    handleLogout: () => void;
+    setSession:React.Dispatch<React.SetStateAction<any>>;
 }
 
 interface Session {
@@ -23,17 +22,17 @@ interface Session {
     email: string;
 }
 
-const IntitialValues: SessionContextType = {
+const InitialValues: SessionContextType = {
     session: null,
-    handleLogout: async () => {},
+    setSession: () => {},
 };
 
 interface SessionContextType {
     session: Session | null;
-    handleLogout: () => Promise<void>;
+    setSession:React.Dispatch<React.SetStateAction<any>>;
 }
 
-export const SessionContext = createContext<SessionContextType>(IntitialValues);
+export const SessionContext = createContext<SessionContextType>(InitialValues);
 
 const SessionProvider = ({ children }: { children: React.ReactNode }) => {
     const router = useRouter();
@@ -67,21 +66,12 @@ const SessionProvider = ({ children }: { children: React.ReactNode }) => {
     //     setSession(null);
     //     router.push("/");
     // };
-    const handleLogout = async (): Promise<void> => {
-        try {
-            console.log("logout started")
-            await logout();
-            console.log("logged out");
-            setSession(null);
-        } catch (error) {
-            console.error("Logout error:", error);
-        }
-    };
+   
     useEffect(() => {
         fetchSession();
     }, []);
 
-    return <SessionContext.Provider value={{ session, handleLogout }}>{children}</SessionContext.Provider>;
+    return <SessionContext.Provider value={{ session, setSession }}>{children}</SessionContext.Provider>;
 };
 
 export default SessionProvider;

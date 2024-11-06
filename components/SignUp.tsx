@@ -21,7 +21,7 @@ const SignUp = () => {
         {isClient ? (
                 <lottie-player autoplay loop mode="normal" src="https://lottie.host/828954c3-3a27-4c77-9763-8149d89ebba3/oPqYPkYIBT.json" style={{ width: "380px", height: "380px" }}></lottie-player>
             ) : null}
-            </div>
+        </div>
         <div className="flex flex-col items-center justify-center gap-2">
             <form className=" justify-center items-center flex flex-col  ">
                 <div className="flex flex-col justify-center items-center dark:text-white text-white  gap-6 w-[270px] lg:w-[300px]   ">

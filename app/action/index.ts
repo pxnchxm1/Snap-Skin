@@ -1,4 +1,5 @@
 "use server"
+
 import { signIn, signOut } from "@/auth"
 
 export const login = async(formData : FormData) : Promise<void>=>{
@@ -6,7 +7,8 @@ export const login = async(formData : FormData) : Promise<void>=>{
     await signIn(action,{redirectTo : "/"})
 }
 
-export const logout = async (): Promise<void> => {
-    await signOut({ redirectTo:"/" }); // Redirects to home page after logout
+export const logout = async ()=> {
+   
+    await signOut({ redirectTo:"/login" }); // Redirects to home page after logout
 };
 

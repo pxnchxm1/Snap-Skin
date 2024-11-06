@@ -3,12 +3,10 @@ import SignUp from "../../components/SignUp";
 
 
 const Login = dynamic(()=>import ("../../components/SignUp"));
-const  signup = () => {
-
+const signup = () => {
   return (
     <SignUp/>
   )
 }
-
 export default signup
 
