@@ -1,15 +1,12 @@
 import dynamic from "next/dynamic";
 
+const Login = dynamic(()=>import ("../components/Login"));
+const  login = () => {
 
-const Navbar =  dynamic(() => import("../components/Navbar"));
-const Home = dynamic(()=>import("../components/Home"));
-const HomePage = () => {
   return (
-    <>
-    <Navbar/>
-    <Home/>
-    </>
+    <Login/>
   )
 }
 
-export default HomePage
+export default login
+

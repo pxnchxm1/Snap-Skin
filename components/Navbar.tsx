@@ -16,15 +16,15 @@ const Navbar :React.FC = () => {
     setOpen((prev)=>!prev);
     };
   return (
-    <div className="w-full h-20  drop-shadow-2xl shadow-black dark:shadow-purple-400 bg-white dark:bg-black flex flex-row justify-between md:px-14 md:py-14 px-4 py-10">
+    <div className="w-full h-20  drop-shadow-2xl  shadow-sm  bg-white dark:bg-black flex flex-row justify-between md:px-14 md:py-14 px-4 py-10">
         <div className="flex flex-row justify-between items-center">
-          <h1 className=" lg:text-4xl text-2xl text-black dark:text-white font-bold ">Snap<span className="text-purple-700 ">Skin</span></h1>
+          <h1 className=" lg:text-4xl text-2xl 2k:text-5xl text-black dark:text-white font-bold ">Snap<span className="text-purple-700 ">Skin</span></h1>
         </div>
-        <div  className="hidden  md:flex  justify-between items-center gap-4  lg:text-3xl text-2xl  flex-row">
+        <div  className="hidden  md:flex  justify-between items-center gap-4  lg:text-3xl text-2xl  2k:text-4xl flex-row">
           <ThemeToggler/>
           {session? (<form action={logout} className="flex flex-row ">
             <Image src={session?.image || "/google.svg"} alt="profile" className="rounded-full" width={50} height={40} />
-                        <button className="rounded-full px-4 py-2  font-semibold lg:text-3xl text-2xl text-purple-700 dark:text-white" type="submit" >
+                        <button className="rounded-full px-4 py-2  font-semibold lg:text-3xl text-2xl 2k:text-5xl text-purple-700 dark:text-white" type="submit" >
                             Sign out
                         </button>
                         
