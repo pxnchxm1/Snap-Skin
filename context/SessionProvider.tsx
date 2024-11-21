@@ -59,13 +59,6 @@ const SessionProvider = ({ children }: { children: React.ReactNode }) => {
         }
     };
 
-    // const handleLogout = async (): Promise<void> => {
-    //     console.log("logging out.....");
-    //     await logout();
-    //     console.log("Logged out, resetting session.");
-    //     setSession(null);
-    //     router.push("/");
-    // };
    
     useEffect(() => {
         fetchSession();

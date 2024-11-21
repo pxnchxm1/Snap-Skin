@@ -1,3 +1,4 @@
+import ConfigureProvider from "@/context/ConfigureProvider";
 import SessionProvider from "@/context/SessionProvider";
 import { ThemeProvider } from "@/context/ThemeProvider";
 import type { Metadata } from "next";
@@ -25,14 +26,16 @@ export default function RootLayout({
       <body
         className={`${ss.className} scroll-smooth antialiased min-h-screen w-full box-border`}
       >
-        <SessionProvider>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light">
-          {children}
+        
+        <ThemeProvider  attribute="class"  defaultTheme="light">
+            <SessionProvider>
+              <ConfigureProvider >
+                {children}
+              </ConfigureProvider>
+              
+            </SessionProvider>
         </ThemeProvider>
-        </SessionProvider>
-       
+        
       </body>
     </html>
   );
