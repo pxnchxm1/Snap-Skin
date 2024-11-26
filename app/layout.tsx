@@ -1,4 +1,5 @@
 import ConfigureProvider from "@/context/ConfigureProvider";
+import CustomProductProvider from "@/context/CustomProductProvider";
 import SessionProvider from "@/context/SessionProvider";
 import { ThemeProvider } from "@/context/ThemeProvider";
 import type { Metadata } from "next";
@@ -29,8 +30,10 @@ export default function RootLayout({
         
         <ThemeProvider  attribute="class"  defaultTheme="light">
             <SessionProvider>
-              <ConfigureProvider >
-                {children}
+              <ConfigureProvider>
+                <CustomProductProvider>
+                  {children}
+                </CustomProductProvider>
               </ConfigureProvider>
               
             </SessionProvider>

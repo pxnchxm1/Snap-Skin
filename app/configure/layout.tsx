@@ -10,10 +10,8 @@ const layout = ({children }:{children :React.ReactNode}) => {
     <div className="w-full  items-center justify-center  flex flex-col bg-white dark:bg-black">
       <Navbar/>
       <StepsPage/>
-      <div className="border-[3px] mt-2  border-dashed border-purple-700 rounded-xl  h-[46rem] w-[46rem] flex flex-col justify-center items-center">
       {children}
-      </div>
-      
+       
       <Footer/>
     </div>
    
