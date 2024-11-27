@@ -1,8 +1,6 @@
 "use client"
 import { configureContext } from "@/context/ConfigureProvider";
 import { useContext } from "react";
-import { IoCloudUploadSharp } from "react-icons/io5";
-import { MdDashboardCustomize, MdViewInAr } from "react-icons/md";
 
 const steps = () => {
      
@@ -12,7 +10,7 @@ const steps = () => {
             title : 'Upload Your Image',
             description: 'Upload your custom images here! ',
             url :'/upload' ,
-            icon :<IoCloudUploadSharp  className="h-8 w-8 lg:h-14 lg:w-14"/>,
+            icon :<img src="/upload.svg"  alt="upload" className="h-8 w-8 lg:h-12 lg:w-12"/>,
             active : uploadSuccess,
             
         },
@@ -20,7 +18,7 @@ const steps = () => {
             title : 'Customise your product',
             description: 'Select your favourite product and customise image here! ',
             url :'/customise' ,
-            icon :<MdDashboardCustomize   className="h-8 w-8 lg:h-14 lg:w-14"/>,
+            icon :<img src="/customize.svg"  alt="customise" className="h-8 w-8 lg:h-12 lg:w-12"/>,
             active : customiseSuccess,
 
         },
@@ -28,7 +26,7 @@ const steps = () => {
             title : 'Review Product',
             description: 'See the end result of your custom product here! ',
             url :'/review' ,
-            icon :<MdViewInAr  className="h-8 w-8 lg:h-14 lg:w-14"/>,
+            icon :<img src="/view.svg"  alt="view" className="h-8 w-8 lg:h-12 lg:w-12"/>,
             active : reviewSuccess,
         },
     
