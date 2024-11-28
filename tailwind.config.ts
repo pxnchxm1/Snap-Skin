@@ -16,6 +16,7 @@ const config: Config = {
 	},
   	extend: {
 		screens:{
+			'375':'375px',
 			'2xl': '1440px',
 			'4k':'1600px',
 			'ssm':'320px',

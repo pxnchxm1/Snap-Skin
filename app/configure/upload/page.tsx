@@ -15,6 +15,8 @@ const page = () => {
 
   const ondeleteimage = () =>{
     setimageUploaded(false);
+    setCustomiseSuccess(false);
+    setReviewSuccess(false);
     setUploadedImageUrl("");
     setUploadSuccess(false);
 
@@ -38,11 +40,11 @@ const page = () => {
    
   return (
     
-    <div  className='border-[3px] mt-2  border-dashed border-purple-700 rounded-xl   justify-center  flex flex-col gap-9 center items-center '>
+    <div  className='border-[2px] mt-2  border-dashed border-purple-700 rounded-xl   justify-center  flex flex-col gap-4 center items-center '>
       <div>
       {imageUploaded ? 
       <div className='flex flex-col items-center justify-center p-6'>
-        <img  className='h-[32rem] w-[32rem]  p-10 ' src={uploadedImageUrl} alt="example"/>
+        <img  className='h-[12rem] w-[12rem]  lg:h-[32rem] lg:w-[32rem] p-4 ' src={uploadedImageUrl} alt="example"/>
         <div className='flex fle-row justify-end items-center gap-5'>
         <RiDeleteBinLine  className='h-8 w-8 text-red-700' onClick={ondeleteimage}/>
         <Link href='/configure/customise' className='rounded px-6 py-2 text-white bg-purple-700' onClick={()=> setUploadSuccess(true)}>

@@ -1,23 +1,18 @@
+"use client"
+import { configureContext } from "@/context/ConfigureProvider";
+import dynamic from "next/dynamic";
+import { useContext } from "react";
+
+
+const CustomisedImage = dynamic(()=>import('@/components/configure/CustomisedImage'));
 
 const page = () => {
+  const {uploadedImageUrl} = useContext(configureContext);
 
-  const imageSizes = [
-    {
-      name : 'w-full h-full object cover',
-      viewname :'Image fill',
-    },
-    {
-      name : 'w-50 h-50 justify-center item-center p-6',
-      viewname :'Image fit',
-      },
-      {
-        name : 'left-0 top-0 h-50 w-50',
-        viewname:'top-left',
-      }
-  ]
   return (
-    <div>
-      This is your review page
+    <div className="p-4">
+      <img src={uploadedImageUrl} alt="" className="h-96 w-96"></img>
+      
     </div>
   )
 }

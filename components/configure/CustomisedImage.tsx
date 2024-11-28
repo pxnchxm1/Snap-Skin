@@ -1,5 +1,7 @@
+"use client"
 import { configureContext } from '@/context/ConfigureProvider';
 import { CustomProductContext } from '@/context/CustomProductProvider';
+import { imageSizeContext } from '@/context/imageSizeProvider';
 import { useContext, useState } from 'react';
 
 import Cropper from "react-easy-crop";
@@ -9,14 +11,7 @@ import { getCroppedImg } from "../../components/configure/CropImages";
 const CustomisedImage = () => {
     const {color,product} = useContext(CustomProductContext);
     const {uploadedImageUrl,setUploadedImageUrl} = useContext(configureContext);
-
-    const [ih, setih] = useState(1);
-    const [iw, setiw] = useState(1);
-    const [it,setit] = useState(0);
-    const [ib,setib] = useState(0);
-    const [il,setil] = useState(0);
-    const [ir,setir] = useState(0);
-    const [cover,setCover] = useState<boolean>(false);
+    const {ih,setih,iw,setiw,it,ib,il,ir,setit,setib,setir,setil,cover,setCover } = useContext(imageSizeContext);
 
 
   // Handle change of the slider value
@@ -46,11 +41,13 @@ const CustomisedImage = () => {
     setit(0);
     
   }
+  
 
     const [crop, setCrop] = useState({ x: 0, y: 0 });
     const [zoom, setZoom] = useState(1);
     const [croppedAreaPixels, setCroppedAreaPixels] = useState<any>(null);
     const [croppedImage, setCroppedImage] = useState<string | null>(null);
+    
 
     const onCropComplete = (croppedArea: any, croppedAreaPixels: any) => {
         setCroppedAreaPixels(croppedAreaPixels);
@@ -94,8 +91,12 @@ const CustomisedImage = () => {
                         </div>
                         <section className=' flex flex-col gap-2 items-start justify-center p-4'>
                                 
-                               
-                                <div className='flex flex-row gap-2  '>
+                            
+                                <div className='flex flex-col lg:flex-row gap-2  '>
+                                        <div className='flex flex-row gap-4 justify-center items-center'>
+                                                <div className="font-semibold text-sm md:text-md xl:text-xl"> Cover Image  </div>
+                                                <input style={{height:30, width:30}} title="c" type='radio' value="cover" onClick={handleCover}/>
+                                        </div>
                                         <div >
                                             <h2 > Set height : {ih} %</h2>
                                             <input 
@@ -120,12 +121,9 @@ const CustomisedImage = () => {
                                             className="slider" 
                                             />
                                         </div>
-                                        <div className='flex flex-row gap-4 justify-center items-center'>
-                                                <div className="font-semibold text-sm md:text-md xl:text-xl"> Cover Image  </div>
-                                                <input style={{height:30, width:30}} title="c" type='radio' value="cover" onClick={handleCover}/>
-                                        </div>
+                                        
                                 </div>
-                                <div className='flex flex-row gap-2  '>
+                                <div className='flex flex-col lg:flex-row gap-2  '>
                                         <div >
                                             <h2 > Move Down : {it} %</h2>
                                             <input 
