@@ -24,7 +24,7 @@ const Home = () => {
                         </h6></div>
                         <div className="flex flex-row gap-2 justify-center items-center"><TiTick className="text-purple-700"/><h6>Create your own unique merchandise today!  </h6></div>
                     </div>
-                    <div className="flex flex-row gap-8 items-start justify-between">
+                    <div className="flex flex-row gap-4 md:gap-8 items-start justify-between">
                         <Image src="/profiles.png" alt="profiles" width={90} height={40}></Image>
                         <div className="flex flex-col justify-center items-start text-gray-500">
                             <div className="flex flex-row gap-1 justify-start items-center font-medium">

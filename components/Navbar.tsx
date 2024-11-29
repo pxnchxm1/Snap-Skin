@@ -22,14 +22,18 @@ const Navbar :React.FC = () => {
         </div>
         <div  className="hidden  md:flex  justify-between items-center gap-4  lg:text-3xl text-2xl  2k:text-4xl flex-row">
           <ThemeToggler/>
-          {session? (<form action={logout} className="flex flex-row ">
-            <Image src={session?.image || "/google.svg"} alt="profile" className="rounded-full" width={50} height={40} />
-                        <button className="rounded-full px-4 py-2  font-semibold lg:text-3xl text-2xl 2k:text-5xl text-purple-700 dark:text-white" type="submit" >
-                            Sign out
-                        </button>
-                        
-                       
-          </form>)
+          {session? (
+                <form action={logout} className="flex flex-row ">
+                            <Image src={session?.image || "/google.svg"} alt="profile" className="rounded-full" width={50} height={40} />
+                            <Link href='/dashboard' className="px-6 justify-center items-center flex">
+                                <div className=" px-4 py-2  items-center justify-center flex flex-row text-purple-700 font-medium text-xl lg:text-2xl 2k:text-3xl rounded-lg border border-purple-700 hover:bg-purple-700 dark:hover:bg-slate-900 ">
+                                    Dashboard
+                                </div>
+                            </Link>
+                            <button className="rounded-full px-4 py-2  font-semibold lg:text-3xl text-2xl 2k:text-5xl text-purple-700 dark:text-white" type="submit" >
+                                Sign out
+                            </button>        
+                </form>)
           :
           (<><Link href="/login"><button className="rounded-full px-4 py-2  font-semibold text-purple-700 dark:text-white">Login</button></Link></>)}
         </div>
@@ -41,7 +45,12 @@ const Navbar :React.FC = () => {
               <ThemeToggler/>
               {session ? (
                 <form action ={logout} className="items-center justify-center flex flex-col gap-4">
-                <Image src={session?.image || "/google.svg"} alt="profile" className="rounded-full " width={40} height={40} />
+                        <Image src={session?.image || "/google.svg"} alt="profile" className="rounded-full " width={40} height={40} />
+                        <Link href='/dashboard' className="px-2 justify-center items-center flex">
+                                <div className=" px-4 py-2  items-center justify-center flex flex-row text-white font-medium text-xl rounded-lg border border-purple-700 hover:bg-purple-400 dark:hover:bg-slate-900 ">
+                                    Dashboard
+                                </div>
+                            </Link>
                         <button type="submit" className=" text-sm  rounded-full font-semibold text-purple-700 dark:text-white"  >
                             Sign out
                         </button>

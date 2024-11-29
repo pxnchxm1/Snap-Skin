@@ -167,9 +167,9 @@ const handleCupMaterialSelect = (name: string): void => {
                                   </span>
                               </div>
                               {merchMaterialDrop && (
-                                  <div className="absolute left-0 right-0 bg-white border-2 border-gray-200 mt-1 z-30 text-sm">
+                                  <div className="absolute left-0 right-0 bg-white dark:bg-black dark:text-white border-2 border-gray-200 mt-1 z-30 text-sm">
                                       {availableMerchMaterials.map((item, index) => (
-                                          <div key={index} className="px-4 py-2 cursor-pointer hover:bg-gray-200" onClick={() => handlMerchMaterialSelect(item.name)}>
+                                          <div key={index} className="px-4 py-2 cursor-pointer dark:hover:bg-slate-900 hover:bg-gray-200" onClick={() => handlMerchMaterialSelect(item.name)}>
                                               {item.name}
                                           </div>
                                       ))}
@@ -189,9 +189,9 @@ const handleCupMaterialSelect = (name: string): void => {
                                     </span>
                                 </div>
                                 {caseMaterialDrop && (
-                                    <div className="absolute left-0 right-0 bg-white border-2 border-gray-200 mt-1 z-30 text-sm">
+                                    <div className="absolute left-0 right-0 bg-white dark:bg-black dark:text-white border-2 border-gray-200 mt-1 z-30 text-sm">
                                         {availableCaseMaterials.map((item, index) => (
-                                            <div key={index} className="px-4 py-2 cursor-pointer hover:bg-gray-200" onClick={() => handleCaseMaterialSelect(item.name)}>
+                                            <div key={index} className="px-4 py-2 cursor-pointer dark:hover:bg-slate-900 hover:bg-gray-200" onClick={() => handleCaseMaterialSelect(item.name)}>
                                                 {item.name}
                                             </div>
                                         ))}
@@ -212,9 +212,9 @@ const handleCupMaterialSelect = (name: string): void => {
                                     </span>
                                 </div>
                                 {cupMaterialDrop && (
-                                    <div className="absolute left-0 right-0 bg-white border-2 border-gray-200 mt-1 z-30 text-sm">
+                                    <div className="absolute left-0 right-0 bg-white dark:bg-black dark:text-white border-2 border-gray-200 mt-1 z-30 text-sm">
                                         {availableCupMaterials.map((item, index) => (
-                                            <div key={index} className="px-4 py-2 cursor-pointer hover:bg-gray-200" onClick={() => handleCupMaterialSelect(item.name)}>
+                                            <div key={index} className="px-4 py-2 cursor-pointer dark:hover:bg-slate-900 hover:bg-gray-200" onClick={() => handleCupMaterialSelect(item.name)}>
                                                 {item.name}
                                             </div>
                                         ))}
@@ -254,9 +254,9 @@ const handleCupMaterialSelect = (name: string): void => {
                                 </span>
                             </div>
                             {drop && (
-                                <div className="absolute left-0 right-0 bg-white border-2 border-gray-200 mt-1 z-30 text-sm">
+                                <div className="absolute left-0 right-0 bg-white dark:bg-black dark:text-white border-2 border-gray-200 mt-1 z-30 text-sm">
                                     {availableModels.map((item, index) => (
-                                        <div key={index} className="px-4 py-2 cursor-pointer hover:bg-purple-400" onClick={() => handleModelSelect(item.name)}>
+                                        <div key={index} className="px-4 py-2 cursor-pointer dark:hover:bg-slate-900 hover:bg-purple-400" onClick={() => handleModelSelect(item.name)}>
                                             {item.name}
                                         </div>
                                     ))}
