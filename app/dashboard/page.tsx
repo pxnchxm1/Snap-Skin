@@ -9,6 +9,8 @@ const Footer = dynamic(()=>import('@/components/footer'))
 const page = () => {
 
     const {session} = useContext(SessionContext);
+     
+    console.log(session?.pastHistory)
 
     const [details, setDetails] = useState([
         {

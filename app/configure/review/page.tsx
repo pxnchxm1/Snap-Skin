@@ -1,6 +1,7 @@
 "use client"
 import { configureContext } from "@/context/ConfigureProvider";
 import { CustomProductContext } from "@/context/CustomProductProvider";
+import { SessionContext } from "@/context/SessionProvider";
 import { imageSizeContext } from "@/context/imageSizeProvider";
 import html2canvas from "html2canvas";
 import dynamic from "next/dynamic";
@@ -11,13 +12,13 @@ import { PiDownloadSimpleBold } from "react-icons/pi";
 import { TiTick } from "react-icons/ti";
 
 
-const CustomisedImage = dynamic(()=>import('@/components/configure/CustomisedImage'));
 const ProductImage = dynamic(()=>import('@/components/configure/FinalProduct'));
 
 const page = () => {
     const {uploadedImageUrl,setReviewSuccess,setUploadSuccess,setCustomiseSuccess} = useContext(configureContext);
     const {ih,iw,it,ib,ir,il,cover} = useContext(imageSizeContext);
     const {color,product,caseMaterial,merchMaterial,mugMaterial,model,size} = useContext(CustomProductContext);
+    const {session,fetchSession} = useContext(SessionContext);
 
     const [showDialog,setShowDialog] = useState<boolean>(false);
 
@@ -36,8 +37,42 @@ const page = () => {
         link.href = image;
         link.download = `${product}-customized-image.png`;
         link.click();
+        const productData = {
+          productName :product,
+          materialName : product=="Merch" ? merchMaterial: product=="Case"? caseMaterial : mugMaterial,
+          modelOrSize :product=="Merch" ? size: product=="Case"? model : '',
+          productColor : color,
+          productImage : image,
+
+        }
+        
+        try{
+          const response = await fetch('/api/productUpload', {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+              },
+            body: JSON.stringify({
+                id : session?.id,
+                productData:[productData],
+            })
+          });
+          if(response.ok){
+            console.log("data uploaded");
+            
+          }else{
+            console.log("data not uploaded")
+          }
+          await fetchSession();
+
+
+        }catch(error){
+          console.log(error);
+        }
+
         setReviewSuccess(true);
-        setShowDialog(true); 
+        setShowDialog(true);
+        
       }
     };
 
@@ -60,7 +95,7 @@ const page = () => {
                         </div>
                         <div className=" gap-2 flex flex-col justify-center items-start text-gray-600 mt-4 text-md font-medium lg:text-2xl">
                           <div>Material : {product=="Merch" ? merchMaterial : product=="Case"? caseMaterial: mugMaterial}</div>
-                          <div>{product=="Merch" ? "Phone Model " : "Merch Size "} : {product=="Merch" ? model : size}</div>
+                          <div>{product=="Merch" ? "Merch Size " : "Model"} : {product=="Merch" ? size : model}</div>
                           <div>Color : {color}</div>
                         </div>
                     </div>

@@ -2,7 +2,7 @@
 import { configureContext } from "@/context/ConfigureProvider";
 import { CustomProductContext } from "@/context/CustomProductProvider";
 import dynamic from "next/dynamic";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
 import { HexColorPicker } from "react-colorful";
 import { CgColorPicker } from "react-icons/cg";
@@ -14,7 +14,7 @@ const page = () => {
   
   const {product,setProduct,color,setColor,size,setSize,model,setModel,mugMaterial,setMugMaterial,caseMaterial,setCaseMaterial,merchMaterial,setMerchMaterial} = useContext(CustomProductContext);
   const {setCustomiseSuccess} = useContext( configureContext);
-
+  const router = useRouter();
   const [pickColor,setPickColor] = useState(false);
   const [drop, setDrop] = useState<boolean>(false);
   const [merchMaterialDrop, setMerchMaterialDrop] = useState<boolean>(false);
@@ -111,6 +111,10 @@ const handleCupMaterialSelect = (name: string): void => {
     },   
   ]
   const {uploadedImageUrl} = useContext(configureContext);
+  const handleNavigation = () => {
+    setCustomiseSuccess(true);
+    router.push('/configure/review'); // Navigate to the review page
+  };
  
   return (
     <div className="justify-center items-center flex flex-col gap-4">
@@ -275,9 +279,9 @@ const handleCupMaterialSelect = (name: string): void => {
             </section>
           </div>
           <div className="w-full flex flex-row justify-end items-center gap-3 p-1">
-          <Link href='/configure/review'>
-                <h4 className="text-purple-700 font-semibold hover:font-bold underline underline-offset-2" onClick={()=> setCustomiseSuccess(true)}>Confirm and go next </h4>
-          </Link>
+          <div onClick={()=>handleNavigation()}>
+                <h4 className="text-purple-700 font-semibold hover:font-bold underline underline-offset-2 cursor-pointer" >Confirm and go next </h4>
+          </div>
               
 
           </div>

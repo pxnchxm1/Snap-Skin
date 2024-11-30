@@ -7,7 +7,7 @@ const StepsPage = dynamic(()=> import('../../components/steps'))
 
 const layout = ({children }:{children :React.ReactNode}) => {
   return (
-    <div className="w-full  items-center justify-center  flex flex-col bg-white dark:bg-black">
+    <div className="w-full  items-center justify-between  flex flex-col bg-white dark:bg-black">
       <Navbar/>
       <StepsPage/>
       {children}

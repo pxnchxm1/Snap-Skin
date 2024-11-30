@@ -1,3 +1,4 @@
+"use client"
 import { configureContext } from '@/context/ConfigureProvider';
 import { CustomProductContext } from '@/context/CustomProductProvider';
 import { imageSizeContext } from '@/context/imageSizeProvider';

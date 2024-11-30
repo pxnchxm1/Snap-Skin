@@ -42,7 +42,7 @@ const SignUp = () => {
         <div className=" w-[500px] flex items-center justify-center flex-row">
         <h4 className="  text-slate-600 font-semibold text-sm md:text-lg items-center justify-center mt-2" >
             Already have an account ? 
-            <Link href="/login">
+            <Link href="/">
                 <span className=" text-purple-700 underline"> Sign In </span></Link>
         </h4>
         </div>
