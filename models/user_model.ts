@@ -1,27 +1,6 @@
 import { Document, model, Model, models, Schema, Types } from "mongoose";
 
 
-const ProductSchema = new Schema({
-    productName : {
-        type : String,
-        required : true
-    },
-    materialName : {
-        type : String,
-        required : true
-        },
-    modelOrSize : {
-        type : String,
-    },
-    productColor : {
-        type : String,
-        required :true,
-    },
-    productImage : {
-        type : String,
-        required : true,
-    }
-})
 
 export interface IUser extends Document{
     name: string,
@@ -31,14 +10,7 @@ export interface IUser extends Document{
     providerId: string,
     password: string,
     _id: Types.ObjectId,
-    pastHistory?:[{
-        productName : string,
-        materialName : string,
-        modelOrSize? : string,
-        productColor : string,
-        productImage : string,
-
-    }],
+   
 }
 
 const UserSchema = new Schema<IUser>({
@@ -64,10 +36,7 @@ const UserSchema = new Schema<IUser>({
     providerId:{
         type: String,
     },
-    pastHistory : {
-        type: [ProductSchema],
-        default :[],
-    }
+ 
 }, {
     timestamps: true
 })

@@ -37,24 +37,22 @@ const page = () => {
         link.href = image;
         link.download = `${product}-customized-image.png`;
         link.click();
-        const productData = {
-          productName :product,
-          materialName : product=="Merch" ? merchMaterial: product=="Case"? caseMaterial : mugMaterial,
-          modelOrSize :product=="Merch" ? size: product=="Case"? model : '',
-          productColor : color,
-          productImage : image,
 
-        }
         
         try{
           const response = await fetch('/api/productUpload', {
-            method: 'PUT',
+            method: 'POST',
             headers: {
               'Content-Type': 'application/json',
               },
             body: JSON.stringify({
                 id : session?.id,
-                productData:[productData],
+                productName :product,
+                materialName : product=="Merch" ? merchMaterial: product=="Case"? caseMaterial : mugMaterial,
+                modelOrSize :product=="Merch" ? size: product=="Case"? model : '',
+                productColor : color,
+                productImage : image,
+      
             })
           });
           if(response.ok){

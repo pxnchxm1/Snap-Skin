@@ -1,49 +1,48 @@
 "use client"
 import { SessionContext } from "@/context/SessionProvider";
 import dynamic from "next/dynamic";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 
 const Navbar = dynamic(()=>import('@/components/Navbar'))
 const Footer = dynamic(()=>import('@/components/footer'))
+
 const page = () => {
 
-    const {session} = useContext(SessionContext);
-     
-    console.log(session?.pastHistory)
-
-    const [details, setDetails] = useState([
-        {
-            id: 1,
-            productName: "Merch",
-            materialName: "Cotton",
-            modelOrSize: "M",
-            productColor: "Brown",
-            productImage: "/tshirtsketch.png"
-        },
-        {
-            id: 2,
-            productName: "Case",
-            materialName: "Silicon",
-            modelOrSize: "iphone 14",
-            productColor: "Purple",
-            productImage: "/iphone14.png"
-        },
-        {
-            id: 3,
-            productName: "Cup",
-            materialName: "Plastic",
-            modelOrSize: "",
-            productColor: "Black",
-            productImage: "/cup.png"
-        }
-    ]);
+    const {session,products,setProducts} = useContext(SessionContext);
+    const [filterdata,setFilterData] =useState<any[]>([]);
+   
     
 
-    const handleDelete=(id:number)=>{
+   
+
+    const handleDelete= async(id : string | number ): Promise<void>=>{
         console.log("delete button clicked");
-        setDetails(prevDetails => prevDetails.filter(item => item.id !== id));
+        // try{
+        //     const res = await fetch ('/api/delete',
+        //         {   method:'POST',
+        //             headers: {
+        //                 'Content-Type': 'application/json',
+        //             },
+        //             body: JSON.stringify(
+        //                 {id}
+        //             )
+        //         }
+        //     );
+
+
+        // }catch(err){
+        //     console.log(err);
+        // }
+
     }
+    useEffect(()=>{
+        if(session?.id){
+            setFilterData( (products || [])?.filter(p => p.user.toString() === session?.id ));
+
+        }
+       
+    },[products,session]);
 
     return (
         <div className="bg-white dark:bg-black justify-between min-h-screen flex flex-col">
@@ -74,7 +73,7 @@ const page = () => {
                         <section className="text-purple-700 p-4 mt-4 items-start justify-start flex flex-col px-2 md:px-8 xl:px-14 gap-5  rounded-xl ">
                             <div className="font-semibold text-xl md:text-3xl text-purple-700">Past Customizations </div>
                                 <div className=" flex flex-col w-full">
-                                    {details.map((item,index)=>
+                                    {filterdata?.map((item,index)=>
                                         <div className="flex flex-row justify-start items-center gap-2 h-[22vh] md:h-[18vh] my-2  ">
                                             <section className="dark:bg-slate-900 bg-gray-200 my-2 flex-row flex justify-start items-center rounded-lg p-2 lg:p-4 w-full h-full ">
                                                     <div className={`flex flex-row md:mx-4 justify-center items-center border-[2px] border-gray-400 bg-gray-400 ml-4`} >

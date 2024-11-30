@@ -76,9 +76,7 @@ export const { handlers: { GET, POST }, signIn, signOut, auth } = NextAuth({
                     image: user.image,
                     provider: account?.provider,
                     providerId: account?.providerAccountId,
-                    pastHistory : [
-                        
-                    ],
+                   
                     
                 });
             }
