@@ -28,11 +28,10 @@ const page = () => {
       setReviewSuccess(false);
       setCustomiseSuccess(false);
       setUploadSuccess(false);
-      setTimeout(()=>{
-        window.location.reload();
-
-      },2000);
-      
+      if(typeof window !== 'undefined'){
+          setTimeout(()=>{window.location.reload();},2000);
+    }
+ 
 
     }
 
