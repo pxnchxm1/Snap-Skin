@@ -1,13 +1,12 @@
-"use client"
+
 import dynamic from "next/dynamic";
 
 const Login = dynamic(()=>import ("../components/Login"));
-const  login = () => {
-
+const  LoginPage = () => {
   return (
     <Login/>
   )
 }
 
-export default login
+export default LoginPage
 
