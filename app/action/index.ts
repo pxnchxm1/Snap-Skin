@@ -8,7 +8,6 @@ export const login = async(formData : FormData) : Promise<void>=>{
 }
 
 export const logout = async ()=> {
-   
     await signOut({ redirectTo:"/" }); // Redirects to home page after logout
 };
 
