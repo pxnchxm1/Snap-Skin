@@ -1,7 +1,7 @@
 "use client";
 
 import { login } from "@/app/action";
-import "@lottiefiles/lottie-player";
+// import "@lottiefiles/lottie-player";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -46,8 +46,8 @@ const Login = () => {
         <div className="flex flex-row justify-between  items-center py-4 gap-8 ">
         <div className="hidden lg:flex">
         {isClient ? (
-                <lottie-player autoplay loop mode="normal" src="https://lottie.host/805ddb78-d659-415d-8d9f-98555828a259/mJ2DtvbSOa.json" style={{ width: "380px", height: "380px" }}></lottie-player>
-                // <img src="/login.svg" alt="login" style={{width:"380px",height:"380px"}}></img>
+                // <lottie-player autoplay loop mode="normal" src="https://lottie.host/805ddb78-d659-415d-8d9f-98555828a259/mJ2DtvbSOa.json" style={{ width: "380px", height: "380px" }}></lottie-player>
+                <img src="/login.svg" alt="login" style={{width:"380px",height:"380px"}}></img>
             ) : null}
         </div>
            <div className="flex flex-col items-center justify-center gap-2">

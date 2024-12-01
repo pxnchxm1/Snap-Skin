@@ -1,9 +1,11 @@
 "use client";
 
-import "@lottiefiles/lottie-player";
+// import "@lottiefiles/lottie-player";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+
+// const LottiePlayer = dynamic(() => import('@lottiefiles/lottie-player'), { ssr: false });
 
 const SignUp = () => {
     const [isClient, setIsClient] = useState(false);
@@ -43,7 +45,13 @@ const SignUp = () => {
         <div className="flex flex-row justify-between  items-center py-4 gap-8 ">
         <div className="hidden lg:flex">
         {isClient ? (
-                <lottie-player autoplay loop mode="normal" src="https://lottie.host/828954c3-3a27-4c77-9763-8149d89ebba3/oPqYPkYIBT.json" style={{ width: "380px", height: "380px" }}></lottie-player>
+                // <lottiePlayer autoplay
+                //                 loop
+                //                 mode="normal"
+                //                 src="https://lottie.host/828954c3-3a27-4c77-9763-8149d89ebba3/oPqYPkYIBT.json"
+                //                 style={{ width: "380px", height: "380px" }}
+                //             ></lottiePlayer>
+                <></>
             ) : null}
         </div>
         <div className="flex flex-col items-center justify-center gap-2">
