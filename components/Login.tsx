@@ -4,10 +4,37 @@ import { login } from "@/app/action";
 import "@lottiefiles/lottie-player";
 import Image from 'next/image';
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const Login = () => {
     const [isClient, setIsClient] = useState(false);
+    const [email,setEmail] = useState<string>("");
+    const [password,setPassword] = useState<string>("");
+    const router = useRouter();
+
+    const handlecredentialLogin = async(e:React.FormEvent)=>{
+        e.preventDefault();
+        try{
+            const response = await fetch('/api/credentialLogin',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        },
+                    body: JSON.stringify({email,password})
+                })
+                if(response.ok){
+                    console.log("login successful");
+                    router.push('/home')
+                }
+        }catch(err){
+            console.log(err);
+        }
+        
+        
+
+    }
 
     useEffect(() => {
         setIsClient(true);
@@ -24,12 +51,12 @@ const Login = () => {
             ) : null}
         </div>
            <div className="flex flex-col items-center justify-center gap-2">
-           <form className=" justify-center items-center flex flex-col  ">
+           <form onSubmit={handlecredentialLogin} className=" justify-center items-center flex flex-col  ">
               
-              <div className="flex flex-col justify-center items-center dark:text-white text-white  gap-6 w-[270px] lg:w-[300px]  ">
-              <input className="border rounded-full px-4 py-3  border-black dark:border-white w-full " type="email" placeholder="Email"/>
-              <input className="border rounded-full px-4 py-3 border-black dark:border-white w-full " type="password" placeholder="Password"/> 
-              <button className="text-xl  dark:bg-purple-700 bg-black rounded-full font-normal w-full py-1">Login</button>
+              <div className="flex flex-col justify-center items-center   gap-6 w-[270px] lg:w-[300px]  ">
+              <input onChange={(e)=>setEmail(e.target.value)} className="border rounded-full px-4 py-3  border-black dark:border-white w-full " type="email" placeholder="Email"/>
+              <input onChange={(e)=>setPassword(e.target.value)} className="border rounded-full px-4 py-3 border-black dark:border-white w-full " type="password" placeholder="Password"/> 
+              <button type="submit" className="  dark:bg-purple-700 bg-black text-white rounded-full font-thin w-full py-1">Login</button>
               <span className=" dark:text-white text-purple-700 ">or</span>
               </div>
             </form>

@@ -5,7 +5,7 @@ import { SessionContext } from "@/context/SessionProvider";
 import { imageSizeContext } from "@/context/imageSizeProvider";
 import html2canvas from "html2canvas";
 import dynamic from "next/dynamic";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import { PiDownloadSimpleBold } from "react-icons/pi";
@@ -19,13 +19,21 @@ const page = () => {
     const {ih,iw,it,ib,ir,il,cover} = useContext(imageSizeContext);
     const {color,product,caseMaterial,merchMaterial,mugMaterial,model,size} = useContext(CustomProductContext);
     const {session,fetchSession} = useContext(SessionContext);
+    const router = useRouter();
 
     const [showDialog,setShowDialog] = useState<boolean>(false);
 
     const handleReset = () => {
+      router.push('/home');
       setReviewSuccess(false);
       setCustomiseSuccess(false);
       setUploadSuccess(false);
+      setTimeout(()=>{
+        window.location.reload();
+
+      },2000);
+      
+
     }
 
     const downloadImage = async () => {
@@ -118,10 +126,10 @@ const page = () => {
               <ProductImage/>
             </div>
             <p className="mt-4 text-gray-700">Your customized product image has been downloaded.</p>
-            <Link href="/home">
-                  <button  onClick={handleReset} className=" bg-green-600 dark:bg-purple-700 text-white px-6 py-2 rounded hover:bg-purple-600">Continue
-                  </button>
-            </Link>
+            
+            <button  onClick={handleReset} className=" bg-green-600 dark:bg-purple-700 text-white px-6 py-2 rounded hover:bg-purple-600">Continue
+            </button>
+            
                   
           </div>
         </div>

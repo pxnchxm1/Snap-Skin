@@ -1,5 +1,7 @@
 // pages/api/auth/[...nextauth].js
+import bcrypt from 'bcryptjs';
 import NextAuth from 'next-auth';
+import Credentials from 'next-auth/providers/credentials';
 import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
 import { connectDb } from './lib/db';
@@ -33,37 +35,40 @@ export const { handlers: { GET, POST }, signIn, signOut, auth } = NextAuth({
                 },
             },
         }),
-        // Credentials({
-        //     credentials: {
-        //         email: { label: "Email", type: "email", required: true },
-        //         password: { label: "Password", type: "password", required: true },
-        //     },
-        //     authorize: async (credentials) => {
-        //         const { email, password } = credentials;
-        //         if (!email || !password) return null;
+        Credentials({
+            credentials: {
+                email: { type: "email" },
+                password: {  type: "password" },
+            },
+            authorize: async (credentials) => {
+                const email = credentials.email as string 
+                const password = credentials.password as string 
 
-        //         try {
-        //             await connectDb();
+                console.log("Email: ", email);
+                console.log("Password: ", password);
 
-        //             const user = await UserModel.findOne({ email, provider: "credentials" }).select("+password");
-        //             if (!user) {
-        //                 console.log("User not found");
-        //                 return null;
-        //             }
+                try {
+                    await connectDb();
 
-        //             const isMatch = await bcrypt.compare(password, user.password);
-        //             if (!isMatch) {
-        //                 console.log("Invalid password");
-        //                 return null;
-        //             }
+                    const user = await UserModel.findOne({ email, provider: "credentials" }).select("+password");
+                    if (!user) {
+                        console.log("User not found");
+                        return null;
+                    }
+
+                    const isMatch = await bcrypt.compare(password, user.password);
+                    if (!isMatch) {
+                        console.log("Invalid password");
+                        return null;
+                    }
                     
-        //             return user;
-        //         } catch (error) {
-        //             console.error("Authorization error:", error);
-        //             return null;
-        //         }
-        //     },
-        // }),
+                    return user;
+                } catch (error) {
+                    console.error("Authorization error:", error);
+                    return null;
+                }
+            },
+        }),
     ],
     callbacks: {
         async signIn({ user, account }) {

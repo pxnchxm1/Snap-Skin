@@ -16,24 +16,28 @@ const page = () => {
 
    
 
-    const handleDelete= async(id : string | number ): Promise<void>=>{
+    const handleDelete= async(id : string  ): Promise<void>=>{
         console.log("delete button clicked");
-        // try{
-        //     const res = await fetch ('/api/delete',
-        //         {   method:'POST',
-        //             headers: {
-        //                 'Content-Type': 'application/json',
-        //             },
-        //             body: JSON.stringify(
-        //                 {id}
-        //             )
-        //         }
-        //     );
+        try{
+            const res = await fetch ('/api/delete',
+                {   method:'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(
+                        {id}
+                    )
+                }
+            );
+            
+
+            window.location.reload();
+            
 
 
-        // }catch(err){
-        //     console.log(err);
-        // }
+        }catch(err){
+            console.log(err);
+        }
 
     }
     useEffect(()=>{
@@ -74,7 +78,7 @@ const page = () => {
                             <div className="font-semibold text-xl md:text-3xl text-purple-700">Past Customizations </div>
                                 <div className=" flex flex-col w-full">
                                     {filterdata?.map((item,index)=>
-                                        <div className="flex flex-row justify-start items-center gap-2 h-[22vh] md:h-[18vh] my-2  ">
+                                        <div key={index} className="flex flex-row justify-start items-center gap-2 h-[22vh] md:h-[18vh] my-2  ">
                                             <section className="dark:bg-slate-900 bg-gray-200 my-2 flex-row flex justify-start items-center rounded-lg p-2 lg:p-4 w-full h-full ">
                                                     <div className={`flex flex-row md:mx-4 justify-center items-center border-[2px] border-gray-400 bg-gray-400 ml-4`} >
                                                         <img src={item.productImage} alt="productimg" className="h-20 w-20  lg:h-40 lg:w-40 p-4"/>
@@ -87,11 +91,10 @@ const page = () => {
                                                     </div>
                                                 
                                             </section>
-                                            <div onClick={()=>handleDelete(item.id)} className="hidden md:flex hover:dark:bg-slate-800 hover:p-3 dark:bg-slate-900 bg-gray-200 my-2 flex-row justify-center items-center rounded-lg h-full p-2 md:p-4">
+                                            <div onClick={()=>handleDelete(item._id.toString())} className="hidden md:flex hover:dark:bg-slate-800 hover:p-3 dark:bg-slate-900 bg-gray-200 my-2 flex-row justify-center items-center rounded-lg h-full p-2 md:p-4">
                                                     <img src="/delimage.svg" alt="delete" className="md:p-4 p-1 h-28 w-28 lg:h-32 lg:w-32" />
                                             </div>
-                                            <img  onClick={()=>handleDelete(item.id)}  src="/delred.svg" alt="delete" className="h-10 w-10 p-1 md:hidden" />
-                                            
+                                            <img  onClick={()=>handleDelete(item._id.toString())}  src="/delred.svg" alt="delete" className="h-10 w-10 p-1 md:hidden" />
                                         </div>)
                                     }
                             </div>
