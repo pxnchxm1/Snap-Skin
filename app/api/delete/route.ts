@@ -1,9 +1,8 @@
 import { connectDb } from "@/lib/db";
 import ProductModel from "@/models/product_model";
 import mongoose from "mongoose";
-import { NextResponse } from "next/server";
 
-export const POST= async (req:Request,res:NextResponse)=>{
+export const POST= async (req:Request)=>{
     const { id } = await req.json();
     try {
         await connectDb();
