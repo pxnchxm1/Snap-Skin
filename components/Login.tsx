@@ -2,7 +2,6 @@
 
 import { login } from "@/app/action";
 import "@lottiefiles/lottie-player";
-import Image from 'next/image';
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -48,6 +47,7 @@ const Login = () => {
         <div className="hidden lg:flex">
         {isClient ? (
                 <lottie-player autoplay loop mode="normal" src="https://lottie.host/805ddb78-d659-415d-8d9f-98555828a259/mJ2DtvbSOa.json" style={{ width: "380px", height: "380px" }}></lottie-player>
+                // <img src="/login.svg" alt="login" style={{width:"380px",height:"380px"}}></img>
             ) : null}
         </div>
            <div className="flex flex-col items-center justify-center gap-2">
@@ -61,8 +61,8 @@ const Login = () => {
               </div>
             </form>
             <form className=" justify-center items-center flex flex-row gap-6 " action={login}>
-            <button type="submit" name="action" value="github"><Image src="/github.svg" alt="github" width={40} height={40} /></button>
-            <button type="submit" name="action" value="google"><Image src="/google.svg" alt="google" width={40} height={40}  /></button>
+            <button type="submit" name="action" value="github"><img src="/github.svg" alt="github" width={40} height={40} /></button>
+            <button type="submit" name="action" value="google"><img src="/google.svg" alt="google" width={40} height={40}  /></button>
            
             </form>
            </div>

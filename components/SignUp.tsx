@@ -1,7 +1,6 @@
 "use client";
 
 import "@lottiefiles/lottie-player";
-import Image from 'next/image';
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -57,8 +56,8 @@ const SignUp = () => {
                 </div>
             </form>
             <form className="  justify-center items-center flex flex-row gap-6  " >
-                <button type="submit"><Image src="/github.svg" alt="google" width={40} height={40} /></button>
-                <button type="submit"><Image src="/google.svg" alt="google" width={40} height={40} /></button>
+                <button type="submit"><img src="/github.svg" alt="google" width={40} height={40} /></button>
+                <button type="submit"><img src="/google.svg" alt="google" width={40} height={40} /></button>
             </form>
            </div>
             

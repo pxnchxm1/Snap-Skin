@@ -1,7 +1,6 @@
 "use client"
 import { logout } from "@/app/action";
 import { SessionContext } from "@/context/SessionProvider";
-import Image from "next/image";
 import Link from "next/link";
 import { useContext, useState } from "react";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
@@ -24,7 +23,7 @@ const Navbar :React.FC = () => {
           <ThemeToggler/>
           {session? (
                 <form action={logout} className="flex flex-row ">
-                            <Image src={session?.image || "/google.svg"} alt="profile" className="rounded-full" width={50} height={40} />
+                            <img src={session?.image || "/google.svg"} alt="profile" className="rounded-full" width={50} height={40} />
                             <Link href='/dashboard' className="px-6 justify-center items-center flex">
                                 <div className=" px-4 py-2  items-center justify-center flex flex-row text-purple-700 font-medium text-xl lg:text-2xl 2k:text-3xl rounded-lg border border-purple-700 hover:text-white hover:bg-purple-700 dark:hover:bg-slate-900 ">
                                     Dashboard
@@ -45,7 +44,7 @@ const Navbar :React.FC = () => {
               <ThemeToggler/>
               {session ? (
                 <form action ={logout} className="items-center justify-center flex flex-col gap-4">
-                        <Image src={session?.image || "/google.svg"} alt="profile" className="rounded-full " width={40} height={40} />
+                        <img src={session?.image || "/google.svg"} alt="profile" className="rounded-full " width={40} height={40} />
                         <Link href='/dashboard' className="px-2 justify-center items-center flex">
                                 <div className=" px-4 py-2  items-center justify-center flex flex-row text-white font-medium text-xl rounded-lg border border-purple-700 hover:bg-purple-400 dark:hover:bg-slate-900 ">
                                     Dashboard

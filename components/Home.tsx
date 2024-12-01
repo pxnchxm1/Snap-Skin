@@ -1,5 +1,4 @@
 
-import Image from "next/image";
 import Link from "next/link";
 import { IoMdStar, IoMdStarHalf } from "react-icons/io";
 import { TiTick } from "react-icons/ti";
@@ -25,7 +24,7 @@ const Home = () => {
                         <div className="flex flex-row gap-2 justify-center items-center"><TiTick className="text-purple-700"/><h6>Create your own unique merchandise today!  </h6></div>
                     </div>
                     <div className="flex flex-row gap-4 md:gap-8 items-start justify-between">
-                        <Image src="/profiles.png" alt="profiles" width={90} height={40}></Image>
+                        <img src="/profiles.png" alt="profiles" width={90} height={40}></img>
                         <div className="flex flex-col justify-center items-start text-gray-500">
                             <div className="flex flex-row gap-1 justify-start items-center font-medium">
                                 <IoMdStar className="text-purple-700"/>
@@ -43,14 +42,14 @@ const Home = () => {
 
                 <section className="p-5  flex flex-row 2xl:hidden">
                 <div className="flex flex-col gap-4">
-                        <Image className="  " src="/apple.png" alt="" width={300} height={250}></Image>
-                        <Image className="  " src="/tshirt.png" alt="" width={300} height={250}></Image>
+                        <img className="  " src="/apple.png" alt="" width={300} height={250}></img>
+                        <img className="  " src="/tshirt.png" alt="" width={300} height={250}></img>
                     </div>
                 </section>
                 <section className="p-5  2xl:flex flex-row hidden ">
                     <div className="flex flex-col gap-4">
-                        <Image className="  " src="/apple.png" alt="" width={300} height={250}></Image>
-                        <Image className="  " src="/tshirt.png" alt="" width={300} height={250}></Image>
+                        <img className="  " src="/apple.png" alt="" width={300} height={250}></img>
+                        <img className="  " src="/tshirt.png" alt="" width={300} height={250}></img>
                     </div>
                     
 
@@ -74,7 +73,7 @@ const Home = () => {
                             "I've always wanted merchandise that reflects my personality, and SnapSkin made it possible. The quality is amazing, and the design tool is so user-friendly. I'm so happy with my custom product!"
                             </h6>
                             <div className="flex flex-row justify-center items-center gap-5">
-                                <Image src="/girlprofile.png" alt="profile1" width={45} height={45}></Image>
+                                <img src="/girlprofile.png" alt="profile1" width={45} height={45}></img>
                                 <div className="flex flex-col justify-center items-start">
                                     <h6 className=" text-sm sm:text-md md:text-lg dark:text-gray-500">
                                         Emily
@@ -100,7 +99,7 @@ const Home = () => {
                                 "Creating my own phone case with snapskin was great experience! The platform is incredibly easy to navigate, allowing me to upload my favourite images and customize everything just the way i wanted. I highly recommend snap skin. "
                             </h6>
                             <div className="flex flex-row justify-center items-center gap-5">
-                                <Image src="/menprofile.png" alt="profile1" width={45} height={45}></Image>
+                                <img src="/menprofile.png" alt="profile1" width={45} height={45}></img>
                                 <div className="flex flex-col justify-center items-start">
                                     <h6 className=" dark:text-gray-500 text-sm sm:text-md md:text-lg 2">
                                         Jonathan
@@ -126,22 +125,22 @@ const Home = () => {
                         Upload your photos <br/>and <span className="text-purple-700 font-semibold">Get your own custom </span> products now 
                     </h1>
                     <div className="flex flex-col md:flex-row justify-center items-center gap-12">
-                        <Image  src="/horse.jpg" alt="cover" width={200} height={250}></Image>
-                        <Image className=" md:rotate-0 rotate-90 dark:hidden" src="/black-arrow-icon-png.webp" alt="cover" width={100} height={150}></Image>
-                        <Image className="md:rotate-0 rotate-90  bg-black hidden dark:flex" src="/white_arrow.png" alt="coverwhite" width={100} height={150}></Image>
+                        <img  src="/horse.jpg" alt="cover" width={200} height={250}></img>
+                        <img  className=" md:rotate-0 rotate-90 dark:hidden" src="/black-arrow-icon-png.webp" alt="cover" width={100} height={150}></img >
+                        <img  className="md:rotate-0 rotate-90  bg-black hidden dark:flex" src="/white_arrow.png" alt="coverwhite" width={100} height={150}></img >
                             <div className="relative pointer-events-none z-50 overflow-hidden">
-                                <Image className="pointer-events-none z-50" src="/phone-template.png" alt="cover" width={200} height={250}></Image>
+                                <img  className="pointer-events-none z-50" src="/phone-template.png" alt="cover" width={200} height={250}></img >
                                     <div className="absolute -z-10 inset-0 rounded-full">
                                         <img  className="min-w-full min-h-full rounded-3xl dark:p-1" src="/horse_phone.jpg" alt="phonecover"></img>
                                     </div>
                             </div>
                     </div>
                     <div className="flex flex-col md:flex-row justify-center items-center gap-12">
-                        <Image src="/ss.png" alt="cover" width={200} height={250}></Image>
-                        <Image className=" md:rotate-0 rotate-90 dark:hidden" src="/black-arrow-icon-png.webp" alt="cover" width={100} height={150}></Image>
-                        <Image className="md:rotate-0 rotate-90  bg-black hidden dark:flex" src="/white_arrow.png" alt="coverwhite" width={100} height={150}></Image>
+                        <img  src="/ss.png" alt="cover" width={200} height={250}></img>
+                        <img className=" md:rotate-0 rotate-90 dark:hidden" src="/black-arrow-icon-png.webp" alt="cover" width={100} height={150}></img >
+                        <img  className="md:rotate-0 rotate-90  bg-black hidden dark:flex" src="/white_arrow.png" alt="coverwhite" width={100} height={150}></img >
                             <div className="relative pointer-events-none z-50 overflow-hidden">
-                                <Image className="pointer-events-none z-50" src="/shirtblack.png" alt="cover" width={300} height={280}></Image>
+                                <img  className="pointer-events-none z-50" src="/shirtblack.png" alt="cover" width={300} height={280}></img >
                                     <div className="absolute -z-10 inset-0 rounded-full">
                                         <img  className="min-w-full min-h-full rounded-3xl p-20 mt-8" src="/ss.png" alt="phonecover"></img>
                                     </div>
