@@ -40,7 +40,7 @@ const UploadPage = () => {
    
   return (
     
-    <div  className='border-[2px] mt-2  border-dashed border-purple-700 rounded-xl   justify-center  flex flex-col gap-4 center items-center '>
+    <div  className='border-[2px] mt-2  border-dashed border-purple-700 rounded-xl  justify-center  flex flex-col gap-4 center items-center '>
       <div>
       {imageUploaded ? 
       <div className='flex flex-col items-center justify-center p-6'>

@@ -66,7 +66,7 @@ const Dashboard = () => {
                             <section className="text-purple-700 p-4 items-start justify-start flex flex-col  w-full dark:bg-slate-900 bg-gray-200 font-semibold text-md md:text-2xl rounded-xl ">
                                 <div className="flex flex-row gap-1 md:gap-2 py-2  justify-start items-start">
                                             <div>
-                                                <img src={session.image} alt="profileimg" className="h-10 w-10 md:h-14 md:w-14 xl:md-16 rounded-full border-gray-600 p-1 border-dashed  border-[1px] md:border-[2px]" />
+                                                {session.image ? <img src={session.image} alt="profileimg" className="h-10 w-10 md:h-14 md:w-14 xl:md-16 rounded-full border-gray-600 p-1 border-dashed  border-[1px] md:border-[2px]" /> : <div className="bg-gray-800 border-dashed text-white border-purple-700 border-[1px] md:border-[2px] rounded-full h-10 w-10 md:h-14 md:w-14 flex flex-row items-center justify-center">{session.email? session.email.charAt(0).toUpperCase(): ''}</div>}
                                             </div>
                                             <div className="flex flex-col items-start justify-center gap-2 px-2 text-gray-600 font-normal  text-sm lg:text-xl hover:text-gray-500">
                                                     <div>UserName : {session.username}</div>

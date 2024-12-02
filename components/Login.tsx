@@ -1,7 +1,6 @@
 "use client";
 
 import { login } from "@/app/action";
-// import "@lottiefiles/lottie-player";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -46,8 +45,7 @@ const Login = () => {
         <div className="flex flex-row justify-between  items-center py-4 gap-8 ">
         <div className="hidden lg:flex">
         {isClient ? (
-                // <lottie-player autoplay loop mode="normal" src="https://lottie.host/805ddb78-d659-415d-8d9f-98555828a259/mJ2DtvbSOa.json" style={{ width: "380px", height: "380px" }}></lottie-player>
-                <img src="/login.svg" alt="login" style={{width:"380px",height:"380px"}}></img>
+                <img src="/login.svg" alt="login" style={{width:"350px",height:"350px"}}></img>
             ) : null}
         </div>
            <div className="flex flex-col items-center justify-center gap-2">
@@ -56,13 +54,13 @@ const Login = () => {
               <div className="flex flex-col justify-center items-center   gap-6 w-[270px] lg:w-[300px]  ">
               <input onChange={(e)=>setEmail(e.target.value)} className="border rounded-full px-4 py-3  border-black dark:border-white w-full " type="email" placeholder="Email"/>
               <input onChange={(e)=>setPassword(e.target.value)} className="border rounded-full px-4 py-3 border-black dark:border-white w-full " type="password" placeholder="Password"/> 
-              <button type="submit" className="  dark:bg-purple-700 bg-black text-white rounded-full font-thin w-full py-1">Login</button>
+              <button type="submit" className="  dark:bg-purple-700 dark:hover:bg-purple-600 bg-black hover:bg-purple-700 text-white rounded-full font-thin w-full py-2">Login</button>
               <span className=" dark:text-white text-purple-700 ">or</span>
               </div>
             </form>
             <form className=" justify-center items-center flex flex-row gap-6 " action={login}>
-            <button type="submit" name="action" value="github"><img src="/github.svg" alt="github" width={40} height={40} /></button>
-            <button type="submit" name="action" value="google"><img src="/google.svg" alt="google" width={40} height={40}  /></button>
+            <button className="hover:scale-105" type="submit" name="action" value="github"><img src="/github.svg" alt="github" width={40} height={40} /></button>
+            <button className="hover:scale-105" type="submit" name="action" value="google"><img src="/google.svg" alt="google" width={40} height={40}  /></button>
            
             </form>
            </div>

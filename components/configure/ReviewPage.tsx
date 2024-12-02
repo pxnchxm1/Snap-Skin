@@ -104,7 +104,7 @@ const ReviewPage = () => {
                           <div>Color : {color}</div>
                         </div>
                     </div>
-                    <div onClick={downloadImage} className="rounded-md p-4 text-white hover:bg-purple-600  bg-purple-700 px-4 gap-4 py-2 flex flex-row justify-center items-center font-semibold">Get Image 
+                    <div onClick={downloadImage} className="rounded-md p-4 cursor-pointer text-white hover:bg-purple-600  bg-purple-700 px-4 gap-4 py-2 flex flex-row justify-center items-center font-semibold">Get Image 
                       <PiDownloadSimpleBold className="h-6 w-6"/>
                     </div>
                   

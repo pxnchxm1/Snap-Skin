@@ -1,11 +1,8 @@
 "use client";
-
-// import "@lottiefiles/lottie-player";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-// const LottiePlayer = dynamic(() => import('@lottiefiles/lottie-player'), { ssr: false });
 
 const SignUp = () => {
     const [isClient, setIsClient] = useState(false);
@@ -45,13 +42,8 @@ const SignUp = () => {
         <div className="flex flex-row justify-between  items-center py-4 gap-8 ">
         <div className="hidden lg:flex">
         {isClient ? (
-                // <lottiePlayer autoplay
-                //                 loop
-                //                 mode="normal"
-                //                 src="https://lottie.host/828954c3-3a27-4c77-9763-8149d89ebba3/oPqYPkYIBT.json"
-                //                 style={{ width: "380px", height: "380px" }}
-                //             ></lottiePlayer>
-                <></>
+              
+                <img src="/login.svg" alt="login" style={{width:"350px",height:"350px"}}></img>
             ) : null}
         </div>
         <div className="flex flex-col items-center justify-center gap-2">
@@ -59,14 +51,11 @@ const SignUp = () => {
                 <div className="flex flex-col justify-center items-center  gap-6 w-[270px] lg:w-[300px]   ">
                     <input onChange={(e)=>setEmail(e.target.value)} className="border rounded-full px-4 py-3  border-black dark:border-white w-full" type="email" placeholder="Email"/>
                     <input onChange={(e)=>setPassword(e.target.value)} className="border rounded-full px-4 py-3  border-black dark:border-white w-full " type="password" placeholder="Password"/> 
-                    <button type="submit" className="  dark:bg-purple-700 bg-black text-white rounded-full font-normal w-full py-1">Register</button>  
+                    <button type="submit" className="  dark:bg-purple-700 dark:hover:bg-purple-600 bg-black hover:bg-purple-700 text-white rounded-full font-thin w-full py-2">Register</button>  
                     <span className=" dark:text-white text-purple-700 ">or</span>
                 </div>
             </form>
-            <form className="  justify-center items-center flex flex-row gap-6  " >
-                <button type="submit"><img src="/github.svg" alt="google" width={40} height={40} /></button>
-                <button type="submit"><img src="/google.svg" alt="google" width={40} height={40} /></button>
-            </form>
+           
            </div>
             
 
